@@ -1,0 +1,149 @@
+<html>
+<head>
+<title>Quotebook.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: #999999; font-weight: normal; font-style: normal; }
+.s0 { color: rgb(0,0,128); font-weight: bold; }
+.s1 { color: rgb(0,0,0); }
+.s2 { color: rgb(0,0,255); }
+.s3 { color: rgb(128,128,128); font-style: italic; }
+.s4 { color: rgb(0,128,0); font-weight: bold; }
+</style>
+</head>
+<BODY BGCOLOR="#ffffff">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+Quotebook.java</FONT>
+</center></TD></TR></TABLE>
+<pre>
+<a name="l1"><span class="ln">1    </span></a><span class="s0">package </span><span class="s1">theoneandonly.com.thequotebook; 
+<a name="l2"><span class="ln">2    </span></a> 
+<a name="l3"><span class="ln">3    </span></a></span><span class="s0">import </span><span class="s1">android.os.Bundle; 
+<a name="l4"><span class="ln">4    </span></a></span><span class="s0">import </span><span class="s1">android.support.design.widget.FloatingActionButton; 
+<a name="l5"><span class="ln">5    </span></a></span><span class="s0">import </span><span class="s1">android.support.design.widget.Snackbar; 
+<a name="l6"><span class="ln">6    </span></a></span><span class="s0">import </span><span class="s1">android.support.v7.app.AppCompatActivity; 
+<a name="l7"><span class="ln">7    </span></a></span><span class="s0">import </span><span class="s1">android.support.v7.widget.Toolbar; 
+<a name="l8"><span class="ln">8    </span></a></span><span class="s0">import </span><span class="s1">android.view.View; 
+<a name="l9"><span class="ln">9    </span></a></span><span class="s0">import </span><span class="s1">android.view.Menu; 
+<a name="l10"><span class="ln">10   </span></a></span><span class="s0">import </span><span class="s1">android.view.MenuItem; 
+<a name="l11"><span class="ln">11   </span></a></span><span class="s0">import </span><span class="s1">android.widget.RelativeLayout; 
+<a name="l12"><span class="ln">12   </span></a></span><span class="s0">import </span><span class="s1">android.widget.TextView; 
+<a name="l13"><span class="ln">13   </span></a> 
+<a name="l14"><span class="ln">14   </span></a></span><span class="s0">import </span><span class="s1">java.util.ArrayList; 
+<a name="l15"><span class="ln">15   </span></a> 
+<a name="l16"><span class="ln">16   </span></a></span><span class="s0">public class </span><span class="s1">Quotebook </span><span class="s0">extends </span><span class="s1">AppCompatActivity { 
+<a name="l17"><span class="ln">17   </span></a> 
+<a name="l18"><span class="ln">18   </span></a>    </span><span class="s0">int </span><span class="s1">count = </span><span class="s2">0</span><span class="s1">; 
+<a name="l19"><span class="ln">19   </span></a> 
+<a name="l20"><span class="ln">20   </span></a>    @Override 
+<a name="l21"><span class="ln">21   </span></a>    </span><span class="s0">protected void </span><span class="s1">onCreate(Bundle savedInstanceState) { 
+<a name="l22"><span class="ln">22   </span></a>        </span><span class="s0">super</span><span class="s1">.onCreate(savedInstanceState); 
+<a name="l23"><span class="ln">23   </span></a> 
+<a name="l24"><span class="ln">24   </span></a>        </span><span class="s3">//The first line (setContentView) sets the app page (Activity) to be the layout we created</span><span class="s1"> 
+<a name="l25"><span class="ln">25   </span></a>        </span><span class="s3">//  earlier, essentially loading the main Quote screen.</span><span class="s1"> 
+<a name="l26"><span class="ln">26   </span></a>        setContentView(R.layout.activity_quotebook); 
+<a name="l27"><span class="ln">27   </span></a> 
+<a name="l28"><span class="ln">28   </span></a></span><span class="s3">/*        This part wasn't in the tutorial 
+<a name="l29"><span class="ln">29   </span></a>        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar); 
+<a name="l30"><span class="ln">30   </span></a>        setSupportActionBar(toolbar); 
+<a name="l31"><span class="ln">31   </span></a> 
+<a name="l32"><span class="ln">32   </span></a>        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab); 
+<a name="l33"><span class="ln">33   </span></a>        fab.setOnClickListener(new View.OnClickListener() { 
+<a name="l34"><span class="ln">34   </span></a>            @Override 
+<a name="l35"><span class="ln">35   </span></a>            public void onClick(View view) { 
+<a name="l36"><span class="ln">36   </span></a>                Snackbar.make(view, &quot;Replace with your own action&quot;, Snackbar.LENGTH_LONG) 
+<a name="l37"><span class="ln">37   </span></a>                        .setAction(&quot;Action&quot;, null).show(); 
+<a name="l38"><span class="ln">38   </span></a>            } 
+<a name="l39"><span class="ln">39   </span></a>        }); 
+<a name="l40"><span class="ln">40   </span></a>          End non-tutorial part*/</span><span class="s1"> 
+<a name="l41"><span class="ln">41   </span></a> 
+<a name="l42"><span class="ln">42   </span></a>        </span><span class="s3">//The other lines just find the Textviews in the activity layout and declare them as an</span><span class="s1"> 
+<a name="l43"><span class="ln">43   </span></a>        </span><span class="s3">//  Object so we can change the text in them</span><span class="s1"> 
+<a name="l44"><span class="ln">44   </span></a>        RelativeLayout touch = (RelativeLayout) findViewById(R.id.touch); 
+<a name="l45"><span class="ln">45   </span></a>        </span><span class="s0">final </span><span class="s1">TextView quoteText = (TextView) findViewById(R.id.quote); 
+<a name="l46"><span class="ln">46   </span></a>        </span><span class="s0">final </span><span class="s1">TextView personText = (TextView) findViewById(R.id.person); 
+<a name="l47"><span class="ln">47   </span></a> 
+<a name="l48"><span class="ln">48   </span></a>        </span><span class="s3">//The first line here creates an Array/List that we can add as many quotes as we like to,</span><span class="s1"> 
+<a name="l49"><span class="ln">49   </span></a>        </span><span class="s3">//  note how the List is called ‘quoteList’.</span><span class="s1"> 
+<a name="l50"><span class="ln">50   </span></a>        </span><span class="s0">final </span><span class="s1">ArrayList&lt;Quote&gt; quoteList = </span><span class="s0">new </span><span class="s1">ArrayList&lt;Quote&gt;(); 
+<a name="l51"><span class="ln">51   </span></a> 
+<a name="l52"><span class="ln">52   </span></a> 
+<a name="l53"><span class="ln">53   </span></a>        </span><span class="s3">/*The next 4 lines are where the Quote class we created earlier are coming in to play. 
+<a name="l54"><span class="ln">54   </span></a>            What we are doing here is passing a quote and a person’s name (separated by a 
+<a name="l55"><span class="ln">55   </span></a>            comma) through to the Quote class and it becomes a variable, we then add that 
+<a name="l56"><span class="ln">56   </span></a>            Variable to the quoteList. 
+<a name="l57"><span class="ln">57   </span></a>        You can add as many quotes by just adding an extra value to the variable name 
+<a name="l58"><span class="ln">58   </span></a>            (quote7) add then adding it to the quote list.*/</span><span class="s1"> 
+<a name="l59"><span class="ln">59   </span></a> 
+<a name="l60"><span class="ln">60   </span></a>        Quote quote1 = </span><span class="s0">new </span><span class="s1">Quote(</span><span class="s4">&quot;Cool Beans&quot;</span><span class="s1">, </span><span class="s4">&quot;Rod Kimble&quot;</span><span class="s1">); 
+<a name="l61"><span class="ln">61   </span></a>        quoteList.add(quote1); 
+<a name="l62"><span class="ln">62   </span></a> 
+<a name="l63"><span class="ln">63   </span></a>        Quote quote2 = </span><span class="s0">new </span><span class="s1">Quote(</span><span class="s4">&quot;How can mirrors be real if our eyes aren't real&quot;</span><span class="s1">, 
+<a name="l64"><span class="ln">64   </span></a>                </span><span class="s4">&quot;Jaden Smith&quot;</span><span class="s1">); 
+<a name="l65"><span class="ln">65   </span></a>        quoteList.add(quote2); 
+<a name="l66"><span class="ln">66   </span></a> 
+<a name="l67"><span class="ln">67   </span></a>        Quote quote3 = </span><span class="s0">new </span><span class="s1">Quote(</span><span class="s4">&quot;That's like me blaming owls for how bad I suck at analogies.&quot;</span><span class="s1">, 
+<a name="l68"><span class="ln">68   </span></a>                </span><span class="s4">&quot;Britta Perry&quot;</span><span class="s1">); 
+<a name="l69"><span class="ln">69   </span></a>                quoteList.add(quote3); 
+<a name="l70"><span class="ln">70   </span></a> 
+<a name="l71"><span class="ln">71   </span></a>        Quote quote4 = </span><span class="s0">new </span><span class="s1">Quote(</span><span class="s4">&quot;You're more of a fun vampire. You don't suck blood, you just&quot; </span><span class="s1">+ 
+<a name="l72"><span class="ln">72   </span></a>                </span><span class="s4">&quot; suck.&quot;</span><span class="s1">, 
+<a name="l73"><span class="ln">73   </span></a>                </span><span class="s4">&quot;Troy Barnes&quot;</span><span class="s1">); 
+<a name="l74"><span class="ln">74   </span></a>        quoteList.add(quote4); 
+<a name="l75"><span class="ln">75   </span></a> 
+<a name="l76"><span class="ln">76   </span></a>        Quote quote5 = </span><span class="s0">new </span><span class="s1">Quote(</span><span class="s4">&quot;I was gonna be the first person in my family to graduate from &quot;</span><span class="s1">+ 
+<a name="l77"><span class="ln">77   </span></a>                </span><span class="s4">&quot;community college. Everyone else graduated from normal college&quot;</span><span class="s1">, </span><span class="s4">&quot;Troy Barnes&quot;</span><span class="s1">); 
+<a name="l78"><span class="ln">78   </span></a>        quoteList.add(quote5); 
+<a name="l79"><span class="ln">79   </span></a> 
+<a name="l80"><span class="ln">80   </span></a>        </span><span class="s3">/*Basically: If every quote has been cycled through, set the count to 0 so it starts again. 
+<a name="l81"><span class="ln">81   </span></a>            Or: If we have not gone through every quote, get the Quote variable in the quoteList at 
+<a name="l82"><span class="ln">82   </span></a>            the count we are up to, then set the text on the quote and person textboxes to the 
+<a name="l83"><span class="ln">83   </span></a>            quote data we just grabbed**/</span><span class="s1"> 
+<a name="l84"><span class="ln">84   </span></a>        touch.setOnClickListener(</span><span class="s0">new </span><span class="s1">View.OnClickListener() { 
+<a name="l85"><span class="ln">85   </span></a>            @Override 
+<a name="l86"><span class="ln">86   </span></a>            </span><span class="s0">public void </span><span class="s1">onClick(View view) { 
+<a name="l87"><span class="ln">87   </span></a> 
+<a name="l88"><span class="ln">88   </span></a>                </span><span class="s0">if </span><span class="s1">(count &lt; quoteList.size()) { 
+<a name="l89"><span class="ln">89   </span></a> 
+<a name="l90"><span class="ln">90   </span></a>                    Quote q = quoteList.get(count); 
+<a name="l91"><span class="ln">91   </span></a>                    quoteText.setText(q.getQuote()); 
+<a name="l92"><span class="ln">92   </span></a>                    personText.setText(q.getPerson()); 
+<a name="l93"><span class="ln">93   </span></a> 
+<a name="l94"><span class="ln">94   </span></a>                    count = count + </span><span class="s2">1</span><span class="s1">; 
+<a name="l95"><span class="ln">95   </span></a> 
+<a name="l96"><span class="ln">96   </span></a>                } </span><span class="s0">else </span><span class="s1">{ 
+<a name="l97"><span class="ln">97   </span></a> 
+<a name="l98"><span class="ln">98   </span></a>                    count = </span><span class="s2">0</span><span class="s1">; 
+<a name="l99"><span class="ln">99   </span></a> 
+<a name="l100"><span class="ln">100  </span></a>                } 
+<a name="l101"><span class="ln">101  </span></a>            } 
+<a name="l102"><span class="ln">102  </span></a>        }); 
+<a name="l103"><span class="ln">103  </span></a>    } 
+<a name="l104"><span class="ln">104  </span></a> 
+<a name="l105"><span class="ln">105  </span></a>    @Override 
+<a name="l106"><span class="ln">106  </span></a>    </span><span class="s0">public boolean </span><span class="s1">onCreateOptionsMenu(Menu menu) { 
+<a name="l107"><span class="ln">107  </span></a>        </span><span class="s3">// Inflate the menu; this adds items to the action bar if it is present.</span><span class="s1"> 
+<a name="l108"><span class="ln">108  </span></a>        getMenuInflater().inflate(R.menu.menu_quotebook, menu); 
+<a name="l109"><span class="ln">109  </span></a>        </span><span class="s0">return true</span><span class="s1">; 
+<a name="l110"><span class="ln">110  </span></a>    } 
+<a name="l111"><span class="ln">111  </span></a> 
+<a name="l112"><span class="ln">112  </span></a>    @Override 
+<a name="l113"><span class="ln">113  </span></a>    </span><span class="s0">public boolean </span><span class="s1">onOptionsItemSelected(MenuItem item) { 
+<a name="l114"><span class="ln">114  </span></a>        </span><span class="s3">// Handle action bar item clicks here. The action bar will</span><span class="s1"> 
+<a name="l115"><span class="ln">115  </span></a>        </span><span class="s3">// automatically handle clicks on the Home/Up button, so long</span><span class="s1"> 
+<a name="l116"><span class="ln">116  </span></a>        </span><span class="s3">// as you specify a parent activity in AndroidManifest.xml.</span><span class="s1"> 
+<a name="l117"><span class="ln">117  </span></a>        </span><span class="s0">int </span><span class="s1">id = item.getItemId(); 
+<a name="l118"><span class="ln">118  </span></a> 
+<a name="l119"><span class="ln">119  </span></a>        </span><span class="s3">//noinspection SimplifiableIfStatement</span><span class="s1"> 
+<a name="l120"><span class="ln">120  </span></a>        </span><span class="s0">if </span><span class="s1">(id == R.id.action_settings) { 
+<a name="l121"><span class="ln">121  </span></a>            </span><span class="s0">return true</span><span class="s1">; 
+<a name="l122"><span class="ln">122  </span></a>        } 
+<a name="l123"><span class="ln">123  </span></a> 
+<a name="l124"><span class="ln">124  </span></a>        </span><span class="s0">return super</span><span class="s1">.onOptionsItemSelected(item); 
+<a name="l125"><span class="ln">125  </span></a>    } 
+<a name="l126"><span class="ln">126  </span></a>} 
+<a name="l127"><span class="ln">127  </span></a></span></pre>
+</body>
+</html>
